@@ -9,7 +9,7 @@ package datastructures;
  *
  * @author matth
  */
-public class DataStructures {
+public class IntVector {
 
     /**
      * @param args the command line arguments

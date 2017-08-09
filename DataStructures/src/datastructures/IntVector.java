@@ -17,5 +17,33 @@ public class IntVector {
     public static void main(String[] args) {
         // TODO code application logic here
     }
+
+    public IntVector()
+    {
+        
+    }
     
+    // Add a new entry to end of array
+    public void insertEnd(int a)
+    {
+        
+    }
+    
+    // Get value at an index
+    public int getIndex(int index)
+    {
+        return 0;
+    }
+    
+    // Set value at an index
+    public int setIndex(int index, int value)
+    {
+        return 0;
+    }
+    
+    // return size
+    public int size()
+    {
+        return 0;
+    }
 }

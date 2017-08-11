@@ -83,6 +83,15 @@ public class IntList {
  
   /** Insert at front (returns new link). O(1) */
   public Link insertFront(int value) {
+      Link link = new Link(value);
+      if(size == 0) {
+        back = link;
+      } else {
+        link.next = front;
+      }
+      front = link;
+      size++;
+      return link;
   }
  
   /** Insert after element (returns new link). O(1) */

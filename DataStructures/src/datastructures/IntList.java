@@ -70,10 +70,15 @@ public class IntList {
   /** Insert at end (returns new link). O(1) */
   public Link insertBack(int value) {
       Link link = new Link(value);
-      back.next = link;
-      link.prev = back;
-      back = link;
+      if(size == 0) {
+        front = link;
+      }
+      else {
+        back.next = link;
+        link.prev = back;
+      }
       size++;
+      back = link;
       return link;
   }
  

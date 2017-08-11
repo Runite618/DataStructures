@@ -5,7 +5,7 @@
  */
 package datastructures;
 
-import java.lang.reflect.Array;
+import java.util.Arrays;
 
 /**
  *
@@ -19,89 +19,76 @@ public class IntVector {
     public static void main(String[] args) {
         // TODO code application logic here
         int valueInsert = 11;
-        int getIndex = 2;
+        int getIndex = 0;
         int setIndex = 0;
         int value = 100;
         
         IntVector intVector = new IntVector();
-        intVector.insertEnd(valueInsert);
-        System.out.println("This is the vanilla array:");
-        for(int i = 0; i < intVector.array.length; i++)
-        {
-            System.out.print(intVector.array[i] + " ");
-        }
+        System.out.println("This the array:");
+        intVector.printArray();
         System.out.println("");
         System.out.println("This is the following array when insertEnd method is called with the value " + valueInsert + " inserted");
-        intVector.printNewArray();
+        intVector.insertEnd(valueInsert);
+        intVector.printArray();
         System.out.println("");
         System.out.println("This is the following size of the array");
         System.out.println(intVector.size());
         System.out.println("This is the value at at a particular index " + getIndex);
         System.out.println(intVector.getIndex(getIndex));
-        System.out.println("This is the array when set index " + setIndex + " with value " + value);
-        intVector.setIndex(setIndex, value);
-        intVector.printNewArray();
+//        System.out.println("This is the array when set index " + setIndex + " with value " + value);
+//        intVector.setIndex(setIndex, value);
+        intVector.printArray();
     }
     
-    public void printNewArray()
+    public void printArray()
     {
-        for(int i = 0; i < newArray.length; i++)
+        for(int i = 0; i < array.length; i++)
         {
-            System.out.print(newArray[i] + " ");
+            System.out.print(array[i] + " ");
         }
     }
 
     private int[] array;
-    private int[] newArray;
+    private int size;
     
     public IntVector()
     {
-        array = new int[] {1, 2, 77};
+        int startingCapacity = 4;
+        
+        array = new int[startingCapacity];
     }
     
     // Add a new entry to end of array
     public void insertEnd(int a)
     {
-        newArray = new int[array.length * 2];
-        int count = 0;
-        for(int i = 0; i < array.length; i++)
+        if(size == array.length)
         {
-            newArray[i] = array[i];
-            count++;
+            array = Arrays.copyOf(array, array.length * 2);
         }
-        newArray[count] = a;
+        array[size] = a;
+        size++;
     }
     
     // Get value at an index
     public int getIndex(int index)
     {
-        int value = 0;
-        
-        for(int i = 0; i < array.length; i++)
-        {
-            if(i == index)
-            {
-                value = array[index];
-            }
-        }
-        
-        return value;
+        return array[index];
     }
     
     // Set value at an index
     public void setIndex(int index, int value)
     {
-        newArray = new int[array.length * 2];
+        array = new int[array.length * 2];
         int count = 0;
         for(int i = 0; i < array.length; i++)
         {
             if(i == index)
             {
-                newArray[i] = value;
+                array[i] = value;
             }
             else
             {
-                newArray[i] = array[i];
+                array[i] = array[i];
             }
         }
     }
@@ -109,6 +96,6 @@ public class IntVector {
     // return size
     public int size()
     {
-        return array.length;
+        return size;
     }
 }

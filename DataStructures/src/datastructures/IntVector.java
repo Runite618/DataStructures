@@ -35,8 +35,8 @@ public class IntVector {
         System.out.println(intVector.size());
         System.out.println("This is the value at at a particular index " + getIndex);
         System.out.println(intVector.getIndex(getIndex));
-//        System.out.println("This is the array when set index " + setIndex + " with value " + value);
-//        intVector.setIndex(setIndex, value);
+        System.out.println("This is the array when set index " + setIndex + " with value " + value);
+        intVector.setIndex(setIndex, value);
         intVector.printArray();
     }
     
@@ -78,19 +78,7 @@ public class IntVector {
     // Set value at an index
     public void setIndex(int index, int value)
     {
-        array = new int[array.length * 2];
-        int count = 0;
-        for(int i = 0; i < array.length; i++)
-        {
-            if(i == index)
-            {
-                array[i] = value;
-            }
-            else
-            {
-                array[i] = array[i];
-            }
-        }
+        array[index] = value;
     }
     
     // return size

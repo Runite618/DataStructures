@@ -88,6 +88,7 @@ public class IntList {
         back = link;
       } else {
         link.next = front;
+        front.prev = link;
       }
       front = link;
       size++;

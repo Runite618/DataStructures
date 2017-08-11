@@ -72,8 +72,7 @@ public class IntList {
       Link link = new Link(value);
       if(size == 0) {
         front = link;
-      }
-      else {
+      } else {
         back.next = link;
         link.prev = back;
       }

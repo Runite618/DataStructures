@@ -32,7 +32,7 @@ public class IntVector {
         }
         System.out.println("");
         System.out.println("This is the following array when insertEnd method is called with the value " + valueInsert + " inserted");
-        intVector.printNewArray(intVector);
+        intVector.printNewArray();
         System.out.println("");
         System.out.println("This is the following size of the array");
         System.out.println(intVector.size());
@@ -40,14 +40,14 @@ public class IntVector {
         System.out.println(intVector.getIndex(getIndex));
         System.out.println("This is the array when set index " + setIndex + " with value " + value);
         intVector.setIndex(setIndex, value);
-        intVector.printNewArray(intVector);
+        intVector.printNewArray();
     }
     
-    public void printNewArray(IntVector intVector)
+    public void printNewArray()
     {
-        for(int i = 0; i < intVector.newArray.length; i++)
+        for(int i = 0; i < newArray.length; i++)
         {
-            System.out.print(intVector.newArray[i] + " ");
+            System.out.print(newArray[i] + " ");
         }
     }
 
@@ -109,13 +109,6 @@ public class IntVector {
     // return size
     public int size()
     {
-        int count = 0;
-        
-        for(int i : array)
-        {
-            count++;
-        }
-        
-        return count;
+        return array.length;
     }
 }

@@ -18,22 +18,37 @@ public class IntVector {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-
+        int valueInsert = 11;
+        int index = 2;
+        
+        IntVector intVector = new IntVector();
+        intVector.insertEnd(valueInsert);
+        System.out.println("This is the following array when insertEnd method is called with the value " + valueInsert + " inserted");
+        for(int i = 0; i < intVector.newArray.length; i++)
+        {
+            System.out.print(intVector.newArray[i] + " ");
+        }
+        System.out.println("");
+        System.out.println("This is the following size of the array");
+        System.out.println(intVector.size());
+        System.out.println("This is the value at at a particular index " + index);
+        System.out.println(intVector.getIndex(index));
     }
 
     private int[] array;
+    private int[] newArray;
     
     public IntVector()
     {
-        array = new int[] {1, 2, 3};
+        array = new int[] {1, 2, 77};
     }
     
     // Add a new entry to end of array
     public void insertEnd(int a)
     {
-        int[] newArray = new int[array.length * 2];
+        newArray = new int[array.length * 2];
         int count = 0;
-        for(int i = 0; i < array.length - 1; i++)
+        for(int i = 0; i < array.length; i++)
         {
             newArray[i] = array[i];
             count++;
@@ -44,7 +59,17 @@ public class IntVector {
     // Get value at an index
     public int getIndex(int index)
     {
-        return 0;
+        int value = 0;
+        
+        for(int i = 0; i < array.length; i++)
+        {
+            if(i == index)
+            {
+                value = array[index];
+            }
+        }
+        
+        return value;
     }
     
     // Set value at an index
@@ -58,7 +83,7 @@ public class IntVector {
     {
         int count = 0;
         
-        for(int i : array)
+        for(int i : newArray)
         {
             count++;
         }

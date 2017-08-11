@@ -42,7 +42,11 @@ public class IntList {
         return prev;
     }
   }
- 
+  
+  private Link front;
+  private Link back;
+  private int size;
+  
   /** Create an empty list. */
   public IntList() {
       
@@ -50,19 +54,27 @@ public class IntList {
  
   /** Get first link (or null if empty list). O(1) */
   public Link front() {
+      return front;
   }
  
   /** Get last link (or null if empty list). O(1) */
   public Link back() {
+      return back;
   }
  
   /** Get size of list. O(1) */
   public int size() {
-      return list.size();
+      return size;
   }
  
   /** Insert at end (returns new link). O(1) */
   public Link insertBack(int value) {
+      Link link = new Link(value);
+      back.next = link;
+      link.prev = back;
+      back = link;
+      size++;
+      return link;
   }
  
   /** Insert at front (returns new link). O(1) */

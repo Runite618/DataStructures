@@ -25,13 +25,20 @@ public class IntVector {
     
     public IntVector()
     {
-        array= new int[0];
+        array = new int[] {1, 2, 3};
     }
     
     // Add a new entry to end of array
     public void insertEnd(int a)
     {
-        
+        int[] newArray = new int[array.length * 2];
+        int count = 0;
+        for(int i = 0; i < array.length - 1; i++)
+        {
+            newArray[i] = array[i];
+            count++;
+        }
+        newArray[count] = a;
     }
     
     // Get value at an index
@@ -49,6 +56,13 @@ public class IntVector {
     // return size
     public int size()
     {
-        return 0;
+        int count = 0;
+        
+        for(int i : array)
+        {
+            count++;
+        }
+        
+        return count;
     }
 }

@@ -134,8 +134,15 @@ public class IntList {
       return link.value;
   }
  
-  /** Find first occurance of value (or null if none found). O(n) */
+  /** Find first occurrence of value (or null if none found). O(n) */
   public Link find(int value) {
+      for(Link link = front(); link != null; link = link.next()) {
+          if(link.get() == value)
+          {
+              return link;
+          }
+      }
+      return null;
   }
  
   /** Get link by index. O(n) */

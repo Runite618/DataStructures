@@ -111,8 +111,6 @@ public class IntList {
   public int removeBack() {
       if(size == 1) {
           front = back = null;
-      } else {
-        back.prev = null;
       }
       size--;
       return back.value;
@@ -122,8 +120,6 @@ public class IntList {
   public int removeFront() {
       if(size == 1) {
           front = back = null;
-      } else {
-          front.next = null;
       }
       size--;
       return front.value;
@@ -131,6 +127,11 @@ public class IntList {
  
   /** Remove element (and return it). O(1) */
   public int remove(Link link) {
+      if(size == 1) {
+          front = back = null;
+      }
+      size--;
+      return link.value;
   }
  
   /** Find first occurance of value (or null if none found). O(n) */

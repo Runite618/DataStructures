@@ -156,6 +156,7 @@ public class IntList {
  
   /** Get element by index. O(n) */
   public int get(int index) {
+      return getLink(index).get();
   }
  
   /** Test structure. */

@@ -161,33 +161,19 @@ public class IntList {
  
   /** Test structure. */
   public static void main(String[] args) {
-    IntList list = new IntList();
- 
-    // Insert increasing numbers into list
-    int limit = 100;
-    for (int i = 1; i <= limit; ++i) {
-      list.insert(i);
-    }
- 
-    // Remove some middle numbers
-    IntList.Link temp1 = list.getLink(50);
-    for (int i = 1; i <= 2; ++i) {
-      IntList.Link temp2 = temp1.previous();
-      list.remove(temp1);
-      temp1 = temp2;
-    }
- 
-    // Put them back
-    temp1 = temp1.next();
-    for (int i = 1; i <= 2; ++i) {
-      temp1 = list.insert(temp1, 48 + i);
-    }
- 
-    // Check coherance
-    IntList.Link current = list.front();
-    for (int i = 1; current != null; ++i) {
-      if (current.get() !=
-      current = current.next();
-    }
+      IntList intList = new IntList();
+      
+      for(int i = 0; i < 100; i++) {
+          intList.insertBack(i);
+          System.out.println(intList.back.get());
+      }
+      
+      for(int i = 0; i < 50; i++) {
+          intList.removeBack();
+      }
+      
+      for(int i = 0; i < intList.size(); i++) {
+          System.out.println(intList.getLink(i).get());
+      }
   }
 }

@@ -14,7 +14,7 @@ public class IntList {
   /** Represents links that form the linked list. */
   public class Link {
     // Create a link containing one element.
-    int value;
+    private int value;
     Link prev;
     Link next;
       
@@ -95,13 +95,27 @@ public class IntList {
       return link;
   }
  
-  /** Insert after element (returns new link). O(1) */
+  /** Insert after the given link (returns new link). O(1) */
   public Link insert(Link link, int value) {
-      
+      Link newLink = new Link(value);
+      if(link == back) {
+          back = newLink;
+      }
+      newLink.prev = link;
+      link.next = newLink;
+      size++;
+      return newLink;
   }
  
   /** Remove end (and return it). O(1) */
   public int removeBack() {
+      if(size == 1) {
+          front = back = null;
+      } else {
+        back.prev = null;
+      }
+      size--;
+      return back.value;
   }
  
   /** Remove front (and return it). O(1) */

@@ -120,6 +120,13 @@ public class IntList {
  
   /** Remove front (and return it). O(1) */
   public int removeFront() {
+      if(size == 1) {
+          front = back = null;
+      } else {
+          front.next = null;
+      }
+      size--;
+      return front.value;
   }
  
   /** Remove element (and return it). O(1) */

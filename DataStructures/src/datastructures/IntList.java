@@ -147,6 +147,11 @@ public class IntList {
  
   /** Get link by index. O(n) */
   public Link getLink(int index) {
+      Link link = front();
+      for(int count = 0; count < index; link = link.next()) {
+          count++;
+      }
+      return link;
   }
  
   /** Get element by index. O(n) */

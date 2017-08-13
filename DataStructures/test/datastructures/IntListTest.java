@@ -45,7 +45,7 @@ public class IntListTest {
     
     @Test
     public void testInsertBackMethod() {
-        IntList intList = new IntList();
+        List intList = new List();
 
         for (int i = 0; i < 100; i++) {
             intList.insertBack(i);
@@ -56,7 +56,7 @@ public class IntListTest {
     
     @Test
     public void testRemoveBackMethod() {
-        IntList intList = new IntList();
+        List intList = new List();
 
         for (int i = 0; i < 100; i++) {
             intList.insertBack(i);

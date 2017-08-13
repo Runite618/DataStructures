@@ -10,25 +10,25 @@ package datastructures;
  * @author matth
  */
 /** Stores a list of integers in a linked list. */
-public class IntList {
+public class List<T> {
   /** Represents links that form the linked list. */
   public class Link {
     // Create a link containing one element.
-    private int value;
+    private T value;
     Link prev;
     Link next;
       
-    Link(int value) {
+    Link(T value) {
         this.value = value;
     }
  
     /** Get value. */
-    public int get() {
+    public T get() {
         return value;
     }
  
     /** Set value. */
-    public void set(int value) {
+    public void set(T value) {
         this.value = value;
     }
  
@@ -48,7 +48,7 @@ public class IntList {
   private int size;
   
   /** Create an empty list. */
-  public IntList() {
+  public List() {
       
   }
  
@@ -68,7 +68,7 @@ public class IntList {
   }
  
   /** Insert at end (returns new link). O(1) */
-  public Link insertBack(int value) {
+  public Link insertBack(T value) {
       Link link = new Link(value);
       if(size == 0) {
         front = link;
@@ -82,7 +82,7 @@ public class IntList {
   }
  
   /** Insert at front (returns new link). O(1) */
-  public Link insertFront(int value) {
+  public Link insertFront(T value) {
       Link link = new Link(value);
       if(size == 0) {
         back = link;
@@ -96,7 +96,7 @@ public class IntList {
   }
  
   /** Insert after the given link (returns new link). O(1) */
-  public Link insert(Link link, int value) {
+  public Link insert(Link link, T value) {
       Link newLink = new Link(value);
       if(link == back) {
           back = newLink;
@@ -108,7 +108,7 @@ public class IntList {
   }
  
   /** Remove end (and return it). O(1) */
-  public int removeBack() {
+  public T removeBack() {
       if(size == 1) {
           front = back = null;
       }
@@ -117,7 +117,7 @@ public class IntList {
   }
  
   /** Remove front (and return it). O(1) */
-  public int removeFront() {
+  public T removeFront() {
       if(size == 1) {
           front = back = null;
       }
@@ -126,7 +126,7 @@ public class IntList {
   }
  
   /** Remove element (and return it). O(1) */
-  public int remove(Link link) {
+  public T remove(Link link) {
       if(size == 1) {
           front = back = null;
       }
@@ -135,7 +135,7 @@ public class IntList {
   }
  
   /** Find first occurrence of value (or null if none found). O(n) */
-  public Link find(int value) {
+  public Link find(T value) {
       for(Link link = front(); link != null; link = link.next()) {
           if(link.get() == value)
           {
@@ -155,7 +155,7 @@ public class IntList {
   }
  
   /** Get element by index. O(n) */
-  public int get(int index) {
+  public T get(int index) {
       return getLink(index).get();
   }
  

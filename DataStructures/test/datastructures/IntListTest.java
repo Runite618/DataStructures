@@ -43,5 +43,29 @@ public class IntListTest {
     // @Test
     // public void hello() {}
     
+    @Test
+    public void testInsertBackMethod() {
+        IntList intList = new IntList();
+
+        for (int i = 0; i < 100; i++) {
+            intList.insertBack(i);
+        }
+        
+        assertEquals(intList.size(), 100);
+    }
     
+    @Test
+    public void testRemoveBackMethod() {
+        IntList intList = new IntList();
+
+        for (int i = 0; i < 100; i++) {
+            intList.insertBack(i);
+        }
+        
+        for(int i = 0; i < 50; i++) {
+            intList.removeBack();
+        }
+        
+        assertEquals(intList.size(), 50);
+    }
 }

@@ -161,19 +161,6 @@ public class IntList {
  
   /** Test structure. */
   public static void main(String[] args) {
-      IntList intList = new IntList();
       
-      for(int i = 0; i < 100; i++) {
-          intList.insertBack(i);
-          System.out.println(intList.back.get());
-      }
-      
-      for(int i = 0; i < 50; i++) {
-          intList.removeBack();
-      }
-      
-      for(int i = 0; i < intList.size(); i++) {
-          System.out.println(intList.getLink(i).get());
-      }
   }
 }
